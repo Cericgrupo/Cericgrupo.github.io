@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ceric</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+
+    <style>
+        .kp-cards-list {
+            max-width: 1100px;
+            margin: 0 auto 60px auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .kp-card {
+            display: flex;
+            align-items: stretch;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s;
+        }
+        .kp-card:last-child {
+            border-bottom: 1px solid #ddd;
+        }
+        .kp-card:nth-child(odd) {
+            background: #f9f6f3;
+        }
+        .kp-card:hover {
+            background: #f0e8df;
+        }
+        .kp-card:hover .kp-card-title {
+            text-decoration: underline;
+        }
+        .kp-card-img {
+            width: 280px;
+            min-height: 180px;
+            flex-shrink: 0;
+            overflow: hidden;
+            background: #c8bfb5;
+        }
+        .kp-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .kp-card-body {
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .kp-card-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #6f4e37;
+            margin-bottom: 10px;
+        }
+        .kp-card-desc {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #888;
+            margin: 0;
+        }
+        .kp-section-header {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+        .kp-section-header h4 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            color: #b8860b;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .kp-section-header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c1a0e;
+        }
+        /* En pantallas pequeñas (celular, menos de 600px) */
+@media (max-width: 600px) {
+    .kp-card {
+        flex-direction: column; /* imagen arriba, texto abajo */
+    }
+    .kp-card-img {
+        width: 100%;            /* imagen ocupa todo el ancho */
+        min-height: 200px;
+    }
+    .kp-cards-list {
+        margin: 0 10px 40px;
+    }
+    .kp-card-body {
+        padding: 20px;
+    }
+}
+
+/* En pantallas medianas (tablet, 600px - 900px) */
+@media (max-width: 900px) and (min-width: 601px) {
+    .kp-card-img {
+        width: 200px;           /* imagen un poco más chica */
+    }
+    .kp-cards-list {
+        max-width: 95%;
+    }
+}
+    </style>
+</head>
+
+<body>
+ <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">Ceric</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                  
+                     <!-- elimne aca algo -->
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                     <!-- elimne aca algo -->
+                    <a href="Documentos.html" class="nav-item nav-link">Publicaciones</a>               
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Publicaciones</h1>
+           
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- About Start -->
+    <div class="container-fluid py-3">
+
+        <div class="kp-section-header">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; font-size: 2.5rem;">Explora</h4>
+            <h1>Nuestras Publicaciones</h1>
+        </div>
+
+        <!-- ============ LISTA DE RECUADROS ============ -->
+        <!-- Para agregar más: copia un bloque .kp-card y cambia href, src, título y descripción -->
+        <div class="kp-cards-list">
+
+            <!-- Recuadro 1 -->
+            <a class="kp-card" href="https://sites.google.com/view/ceric/ceric">
+                <div class="kp-card-img">
+                    <img src="img/San-Juan.jpg" alt="Sección 1">
+                </div>
+                <div class="kp-card-body">
+                    <div class="kp-card-title">Cerro Viva el Perú</div>
+                    <p class="kp-card-desc">Detrás de lo que fue la antigua casa hacienda San Juan, en el actual distrito de Santiago de Surco, se alza una cadena de colinas que guarda una historia de guerra, muerte y memoria. Sin embargo, en la actualidad es un lugar olvidado y desconocido. </p>
+                </div>
+            </a>
+
+           
+           
+
+        </div>
+        <!-- ============ FIN LISTA DE RECUADROS ============ -->
+
+    </div>
+    <!-- About End -->
+
+        <!-- Footer Start -->
+<div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+    <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4 justify-content-center">
+       
+        <div class="col-lg-3 col-md-6 mb-5 text-center">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Ubicación</h4>
+
+            <!-- Mapa Google Maps -->
+            <div class="mt-4" style="border-radius: 8px; overflow: hidden;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4!2d-76.9928267!3d-12.1704528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b84a67e5c7b1%3A0x98d5653c78e1c5ef!2sCerro%20VIVA%20PERU!5e0!3m2!1ses!2spe!4v1715000000000!5m2!1ses!2spe"
+                    width="100%"
+                    height="300"
+                    style="border: 0; display: block;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Ubicación Cerro VIVA PERU">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-5 text-center">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Siguenos en nuestras redes sociales</h4>
+          
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/p/Grupos-Ceric-61589148273439/"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.tiktok.com/@ceric_pre4?_r=1&_t=ZS-967ceTcxf2D"><i class="fab fa-tiktok"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square" href="https://www.instagram.com/ceric_pre4/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        
+    </div>
+   <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" 
+style="border-color: rgba(256, 256, 256, .1) !important;">
+
+    <p class="m-0 text-white">
+        Template by 
+        <a class="font-weight-bold text-white" href="https://htmlcodex.com/">
+            HTML Codex
+        </a>
+        | Adaptado por 
+        <a class="font-weight-bold text-white" href="#">
+            AdrialSas
+        </a>
+    </p>
+
+</div>
+</div>
+<!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
