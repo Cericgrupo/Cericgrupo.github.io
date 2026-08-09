@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>Ceric</title>
+    <title>Ceric - Publicaciones</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
+    <meta content="Ceric, Publicaciones, Cerro Viva el Peru" name="keywords">
+    <meta content="Publicaciones e investigaciones del Grupo Ceric." name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -27,114 +27,181 @@
 
     <style>
         .kp-cards-list {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto 60px auto;
             display: flex;
             flex-direction: column;
+            gap: 25px; /* Separación si agregas más tarjetas en el futuro */
         }
+        /* ================================
+   TARJETA PRÓXIMAMENTE
+================================ */
+
+.kp-card-coming-soon {
+    position: relative;
+    filter: grayscale(75%);
+    opacity: 0.62;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Imagen apagada */
+.kp-card-coming-soon .kp-card-img {
+    position: relative;
+}
+
+.kp-card-coming-soon .kp-card-img img {
+    filter: grayscale(100%);
+}
+
+/* Capa sobre la imagen */
+.kp-coming-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: rgba(0, 0, 0, 0.28);
+    color: white;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.kp-coming-overlay i {
+    font-size: 28px;
+}
+
+/* Badge */
+.kp-card-coming-soon .kp-card-badge {
+    background: #999;
+}
+
+/* Link deshabilitado */
+.kp-link-disabled {
+    color: #999 !important;
+}
+        /* Tarjeta Estilo Elevado */
         .kp-card {
             display: flex;
             align-items: stretch;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-bottom: none;
-            text-decoration: none;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-decoration: none !important;
             color: inherit;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
         }
-        .kp-card:last-child {
-            border-bottom: 1px solid #ddd;
-        }
-        .kp-card:nth-child(odd) {
-            background: #f9f6f3;
-        }
+
         .kp-card:hover {
-            background: #f0e8df;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            background: #ffffff;
         }
-        .kp-card:hover .kp-card-title {
-            text-decoration: underline;
-        }
+
         .kp-card-img {
-            width: 280px;
-            min-height: 180px;
+            width: 320px;
+            min-height: 220px;
             flex-shrink: 0;
             overflow: hidden;
             background: #c8bfb5;
+            position: relative;
         }
+
         .kp-card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
         }
+
+        .kp-card:hover .kp-card-img img {
+            transform: scale(1.05); /* Efecto zoom suave en la foto al pasar el cursor */
+        }
+
         .kp-card-body {
-            padding: 30px 40px;
+            padding: 35px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
+        .kp-card-badge {
+            display: inline-block;
+            align-self: flex-start;
+            background: #da9f5b;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
         .kp-card-title {
             font-family: 'Roboto', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #6f4e37;
-            margin-bottom: 10px;
-        }
-        .kp-card-desc {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            color: #888;
-            margin: 0;
-        }
-        .kp-section-header {
-            text-align: center;
-            padding: 50px 20px 30px;
-        }
-        .kp-section-header h4 {
-            font-family: 'Roboto', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 5px;
-            color: #b8860b;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-        .kp-section-header h1 {
-            font-family: 'Roboto', sans-serif;
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #2c1a0e;
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
-        /* En pantallas pequeñas (celular, menos de 600px) */
-@media (max-width: 600px) {
-    .kp-card {
-        flex-direction: column; /* imagen arriba, texto abajo */
-    }
-    .kp-card-img {
-        width: 100%;            /* imagen ocupa todo el ancho */
-        min-height: 200px;
-    }
-    .kp-cards-list {
-        margin: 0 10px 40px;
-    }
-    .kp-card-body {
-        padding: 20px;
-    }
-}
 
-/* En pantallas medianas (tablet, 600px - 900px) */
-@media (max-width: 900px) and (min-width: 601px) {
-    .kp-card-img {
-        width: 200px;           /* imagen un poco más chica */
-    }
-    .kp-cards-list {
-        max-width: 95%;
-    }
-}
+        .kp-card:hover .kp-card-title {
+            color: #da9f5b;
+        }
+
+        .kp-card-desc {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.02rem;
+            color: #4a4a4a;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .kp-card-link {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #da9f5b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .kp-section-header {
+            text-align: center;
+            padding: 30px 20px 40px;
+        }
+
+        /* Responsive celular */
+        @media (max-width: 768px) {
+            .kp-card {
+                flex-direction: column;
+            }
+            .kp-card-img {
+                width: 100%;
+                height: 220px;
+            }
+            .kp-cards-list {
+                padding: 0 15px;
+            }
+            .kp-card-body {
+                padding: 25px 20px;
+            }
+        }
     </style>
 </head>
 
 <body>
- <!-- Navbar Start -->
+    <!-- Navbar Start -->
     <div class="container-fluid p-0 nav-bar">
         <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
             <a href="index.html" class="navbar-brand px-lg-4 m-0">
@@ -145,11 +212,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto p-4">
-                  
-                     <!-- elimne aca algo -->
                     <a href="about.html" class="nav-item nav-link">Nosotros</a>
-                     <!-- elimne aca algo -->
-                    <a href="Documentos.html" class="nav-item nav-link">Publicaciones</a>               
+                    <a href="Documentos.html" class="nav-item nav-link active">Publicaciones</a>               
                 </div>
             </div>
         </nav>
@@ -157,96 +221,142 @@
     <!-- Navbar End -->
 
     <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
-        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+    <div class="container-fluid page-header mb-4 position-relative overlay-bottom">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 350px">
             <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Publicaciones</h1>
-           
         </div>
     </div>
     <!-- Page Header End -->
 
-    <!-- About Start -->
+    <!-- Seccion Publicaciones Start -->
     <div class="container-fluid py-3">
 
         <div class="kp-section-header">
-            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; font-size: 2.5rem;">Explora</h4>
-            <h1>Nuestras Publicaciones</h1>
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; font-size: 1.2rem;">Explora</h4>
+            <h1 class="display-4 text-uppercase">Nuestras Publicaciones</h1>
         </div>
 
         <!-- ============ LISTA DE RECUADROS ============ -->
-        <!-- Para agregar más: copia un bloque .kp-card y cambia href, src, título y descripción -->
         <div class="kp-cards-list">
 
             <!-- Recuadro 1 -->
-            <a class="kp-card" href="https://sites.google.com/view/ceric/ceric">
+            <a class="kp-card" href="https://sites.google.com/view/ceric/ceric" target="_blank">
                 <div class="kp-card-img">
-                    <img src="img/San-Juan.jpg" alt="Sección 1">
+                    <img src="img/San-Juan.jpg" alt="Cerro Viva el Perú">
                 </div>
                 <div class="kp-card-body">
+                    <span class="kp-card-badge">Investigación</span>
                     <div class="kp-card-title">Cerro Viva el Perú</div>
-                    <p class="kp-card-desc">Detrás de lo que fue la antigua casa hacienda San Juan, en el actual distrito de Santiago de Surco, se alza una cadena de colinas que guarda una historia de guerra, muerte y memoria. Sin embargo, en la actualidad es un lugar olvidado y desconocido. </p>
+                    <p class="kp-card-desc">
+                        Detrás de lo que fue la antigua casa hacienda San Juan, en el actual distrito de Santiago de Surco, se alza una cadena de colinas que guarda una historia de guerra, muerte y memoria. Sin embargo, en la actualidad es un lugar olvidado y desconocido.
+                    </p>
+                    <div class="kp-card-link">
+                        Leer publicación completa <i class="fa fa-arrow-right"></i>
+                    </div>
                 </div>
             </a>
+            <!-- Recuadro 1 -->
 
-           
-           
+            <!-- Recuadro 2 -->
+            <a class="kp-card" href="https://sites.google.com/sda.edu.pe/ceric/ceric" target="_blank">
+                <div class="kp-card-img">
+                    <img src="img/carousel-1.jpg" alt="Cerro Viva el Perú">
+                </div>
+                <div class="kp-card-body">
+                    <span class="kp-card-badge">Investigación</span>
+                    <div class="kp-card-title">¿Qué encontramos durante nuestra investigación sobre el Cerro Viva el Perú?</div>
+                    <p class="kp-card-desc">
+                        A través de la búsqueda de documentos, testimonios y fuentes históricas, descubrimos nuevos datos que permiten conocer mejor la historia de este lugar y comprender por qué su pasado merece ser recordado.
+                    </p>
+                    <div class="kp-card-link">
+                        Leer publicación completa <i class="fa fa-arrow-right"></i>
+                    </div>
+                </div>
+            </a>
+            <!-- Recuadro 2 -->
+             <!-- Recuadro 3 - Próximamente -->
+<div class="kp-card kp-card-coming-soon">
+    <div class="kp-card-img">
+        <img src="img/Inwork.png" alt="Próxima investigación">
+        <div class="kp-coming-overlay">
+            <i class="fa fa-clock-o"></i>
+            <span>PRÓXIMAMENTE</span>
+        </div>
+    </div>
 
+    <div class="kp-card-body">
+        <span class="kp-card-badge">En preparación</span>
+
+        <div class="kp-card-title">
+            Muy pronto, una nueva investigación
+        </div>
+
+        <p class="kp-card-desc">
+            Estamos preparando una nueva publicación para continuar descubriendo
+            y difundiendo historias que forman parte de nuestro patrimonio.
+        </p>
+
+        <div class="kp-card-link kp-link-disabled">
+            Próximamente <i class="fa fa-clock-o"></i>
+        </div>
+    </div>
+</div>
+<!-- Recuadro 3 -->
+            
         </div>
         <!-- ============ FIN LISTA DE RECUADROS ============ -->
 
     </div>
-    <!-- About End -->
+    <!-- Seccion Publicaciones End -->
 
-        <!-- Footer Start -->
-<div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
-    <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4 justify-content-center">
-       
-        <div class="col-lg-3 col-md-6 mb-5 text-center">
-            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Ubicación</h4>
+    <!-- Footer Start -->
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4 justify-content-center">
+           
+            <div class="col-lg-3 col-md-6 mb-5 text-center">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Ubicación</h4>
 
-            <!-- Mapa Google Maps -->
-            <div class="mt-4" style="border-radius: 8px; overflow: hidden;">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4!2d-76.9928267!3d-12.1704528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b84a67e5c7b1%3A0x98d5653c78e1c5ef!2sCerro%20VIVA%20PERU!5e0!3m2!1ses!2spe!4v1715000000000!5m2!1ses!2spe"
-                    width="100%"
-                    height="300"
-                    style="border: 0; display: block;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Ubicación Cerro VIVA PERU">
-                </iframe>
+                <!-- Mapa Google Maps -->
+                <div class="mt-4" style="border-radius: 8px; overflow: hidden;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4!2d-76.9928267!3d-12.1704528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b84a67e5c7b1%3A0x98d5653c78e1c5ef!2sCerro%20VIVA%20PERU!5e0!3m2!1ses!2spe!4v1715000000000!5m2!1ses!2spe"
+                        width="100%"
+                        height="300"
+                        style="border: 0; display: block;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación Cerro VIVA PERU">
+                    </iframe>
+                </div>
             </div>
+
+            <div class="col-lg-3 col-md-6 mb-5 text-center">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos en nuestras redes sociales</h4>
+              
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/p/Grupos-Ceric-61589148273439/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.tiktok.com/@ceric_pre4?_r=1&_t=ZS-967ceTcxf2D" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="https://www.instagram.com/ceric_pre4/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
         </div>
 
-        <div class="col-lg-3 col-md-6 mb-5 text-center">
-            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Siguenos en nuestras redes sociales</h4>
-          
-            <div class="d-flex justify-content-center">
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/p/Grupos-Ceric-61589148273439/"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.tiktok.com/@ceric_pre4?_r=1&_t=ZS-967ceTcxf2D"><i class="fab fa-tiktok"></i></a>
-                <a class="btn btn-lg btn-outline-light btn-lg-square" href="https://www.instagram.com/ceric_pre4/"><i class="fab fa-instagram"></i></a>
-            </div>
+        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="m-0 text-white">
+                Template by 
+                <a class="font-weight-bold text-white" href="https://htmlcodex.com/" target="_blank">
+                    HTML Codex
+                </a>
+                | Adaptado por 
+                <a class="font-weight-bold text-white" href="#">
+                    AdrialSas
+                </a>
+            </p>
         </div>
-        
     </div>
-   <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" 
-style="border-color: rgba(256, 256, 256, .1) !important;">
-
-    <p class="m-0 text-white">
-        Template by 
-        <a class="font-weight-bold text-white" href="https://htmlcodex.com/">
-            HTML Codex
-        </a>
-        | Adaptado por 
-        <a class="font-weight-bold text-white" href="#">
-            AdrialSas
-        </a>
-    </p>
-
-</div>
-</div>
-<!-- Footer End -->
+    <!-- Footer End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>

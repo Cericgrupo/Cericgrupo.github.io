@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
-   <title>Ceric</title>
+    <title>Ceric - Nosotros</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
+    <meta content="Ceric, Cerro Viva el Peru, Memoria Historica, Batalla de San Juan y Chorrillos" name="keywords">
+    <meta content="Recuperando la memoria histórica y la valoración patrimonial del Cerro Viva el Perú." name="description">
+
+    <!-- Open Graph para Redes Sociales y WhatsApp -->
+    <meta property="og:title" content="CERIC - Acerca de Nosotros">
+    <meta property="og:description" content="Conoce al equipo de investigación escolar CERIC de 5to de secundaria de la I.E.P. Santo Domingo el Apóstol.">
+    <meta property="og:image" content="img/Ceric.png">
+    <meta property="og:type" content="website">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -18,6 +24,9 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
+    <!-- AOS Library (Estilos para animación scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
@@ -27,7 +36,7 @@
 </head>
 
 <body>
- <!-- Navbar Start -->
+    <!-- Navbar Start -->
     <div class="container-fluid p-0 nav-bar">
         <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
             <a href="index.html" class="navbar-brand px-lg-4 m-0">
@@ -38,10 +47,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto p-4">
-                  
-                     <!-- elimne aca algo -->
-                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
-                     <!-- elimne aca algo -->
+                    <a href="about.html" class="nav-item nav-link active">Nosotros</a>
                     <a href="Documentos.html" class="nav-item nav-link">Publicaciones</a>               
                 </div>
             </div>
@@ -49,161 +55,216 @@
     </div>
     <!-- Navbar End -->
 
-
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
         <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
-            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">acerca de nosotros</h1>
-            
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase" data-aos="fade-down">acerca de nosotros</h1>
         </div>
     </div>
     <!-- Page Header End -->
 
- <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="section-title">
-                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; font-size: 2.5rem;">Grupo Ceric</h4>
-               <h5 class="mb-3" style="line-height: 1.8;">Somos un equipo de investigación escolar de 5to de secundaria de la I.E.P. Santo Domingo el Apóstol. Estamos comprometidos con rescatar y dar a conocer la memoria histórica del Cerro Viva el Perú, en Santiago de Surco, lugar clave en la Batalla de San Juan y Chorrillos (1881). Por eso creamos CERIC, el Círculo estudiantil para el reconocimiento e investigación del Cerro Viva el Perú, con el fin de poner en valor su historia e importancia.</h5>              
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-   
-    <!-- Testimonial Start -->
+    <!-- Testimonial Start (Grupo Ceric) -->
 <div class="container-fluid py-5">
     <div class="container">
-        <div class="section-title">              
-            <h1 class="display-4">Integrantes del grupo</h1>
-        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up">
+                <!-- Tarjeta con sombra suave y bordes redondeados -->
+                <div class="bg-white p-4 p-md-5 pt-5 rounded shadow-sm border-top border-primary border-4 text-center">
+    
+    <span class="badge badge-primary text-uppercase px-3 py-2 mb-3 mt-2" style="letter-spacing: 2px;">
+        ¿Quiénes somos?
+    </span>
+    
+    <h2 class="text-primary text-uppercase font-weight-bold mb-4" style="letter-spacing: 3px;">
+        Grupo Ceric
+    </h2>
 
-        <div class="owl-carousel testimonial-carousel">
+    <p class="lead text-dark mb-0" style="line-height: 1.9; font-weight: 400; font-size: 1.15rem;">
+        Somos un equipo de investigación escolar de <strong>5to de secundaria</strong> de la <strong>I.E.P. Santo Domingo el Apóstol</strong>. Estamos comprometidos con rescatar y dar a conocer la memoria histórica del <strong>Cerro Viva el Perú</strong> (Santiago de Surco), lugar clave en la <i>Batalla de San Juan y Chorrillos (1881)</i>.
+    </p>
 
-            <div class="testimonial-item">
-                <div class="d-flex align-items-center mb-3">
-                    <img class="img-fluid" src="img/Dani.jpeg" alt="">
-                    <div class="ml-3">
-                        <h4>Daniela</h4>
-                        <i>Diseño visual</i>
-                    </div>
-                </div>
-                <p class="m-0">
-                    Hola, soy Daniela. Propongo ideas creativas para la grabación de videos y apoyo en el diseño de contenido visual que comparte información mediante redes sociales.
-                </p>
+    <hr class="my-4" style="width: 60px; border-top: 3px solid #da9f5b; margin: auto;">
+
+    <!-- Cambiamos text-muted por text-secondary o text-dark para mejor legibilidad -->
+    <p class="text-dark mb-0" style="font-size: 1.05rem; line-height: 1.8; opacity: 0.85;">
+        Por eso creamos <strong>CERIC</strong> (<i>Círculo estudiantil para el reconocimiento e investigación del Cerro Viva el Perú</i>), con el firme propósito de poner en valor su historia, patrimonio e importancia para nuestra comunidad.
+    </p>
+
+</div>
             </div>
-
-            <div class="testimonial-item">
-                <div class="d-flex align-items-center mb-3">
-                    <img class="img-fluid" src="img/Andres.jpeg" alt="">
-                    <div class="ml-3">
-                        <h4>Andres</h4>
-                        <i>Coordinador del grupo</i>
-                    </div>
-                </div>
-                <p class="m-0">
-                    Hola, soy Andres. Soy responsable de dirigir y administrar el grupo, además de redactar textos para la investigación. Me gusta la astrofísica y la etnohistoria.
-                </p>
-            </div>
-
-            <div class="testimonial-item">
-                <div class="d-flex align-items-center mb-3">
-                    <img class="img-fluid" src="img/Diego.jpeg" alt="">
-                    <div class="ml-3">
-                        <h4>Diego</h4>
-                        <i>Redacción y edición</i>
-                    </div>
-                </div>
-                <p class="m-0">
-                    Hola, soy Diego, uno de los encargados de la redacción de la investigación y edición de contenido. Me gusta jugar videojuegos y vóley.
-                </p>
-            </div>
-
-            <div class="testimonial-item">
-                <div class="d-flex align-items-center mb-3">
-                    <img class="img-fluid" src="img/Emily.jpeg" alt="">
-                    <div class="ml-3">
-                        <h4>Emily</h4>
-                        <i>Decoración y contenido</i>
-                    </div>
-                </div>
-                <p class="m-0">
-                    Hola, soy Emily, encargada de revisar el contenido y la decoración de los trabajos. El deporte que practico es el vóley.
-                </p>
-            </div>
-
-            <div class="testimonial-item">
-                <div class="d-flex align-items-center mb-3">
-                    <img class="img-fluid" src="img/Adrian.png" alt="">
-                    <div class="ml-3">
-                        <h4>Adrian</h4>
-                        <i>Diseño y desarrollo web</i>
-                    </div>
-                </div>
-                <p class="m-0">
-                    Hola, soy Adrian, encargado del diseño y desarrollo de la página web del proyecto. También apoyo en la edición multimedia y en la organización del contenido digital.
-                </p>
-            </div>
-
         </div>
     </div>
 </div>
 <!-- Testimonial End -->
-  <!-- Footer Start -->
-<div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
-    <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4 justify-content-center">
-       
-        <div class="col-lg-3 col-md-6 mb-5 text-center">
-            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Ubicación</h4>
+   
+    <!-- Testimonial Start (Integrantes) -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up">              
+                <h1 class="display-4">Integrantes del grupo</h1>
+            </div>
 
-            <!-- Mapa Google Maps -->
-            <div class="mt-4" style="border-radius: 8px; overflow: hidden;">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4!2d-76.9928267!3d-12.1704528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b84a67e5c7b1%3A0x98d5653c78e1c5ef!2sCerro%20VIVA%20PERU!5e0!3m2!1ses!2spe!4v1715000000000!5m2!1ses!2spe"
-                    width="100%"
-                    height="300"
-                    style="border: 0; display: block;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Ubicación Cerro VIVA PERU">
-                </iframe>
+            <div class="owl-carousel testimonial-carousel" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/Dani.jpeg" alt="Daniela">
+                        <div class="ml-3">
+                            <h4>Daniela</h4>
+                            <i>Diseño visual</i>
+                        </div>
+                    </div>
+                    <p class="m-0">
+                        Hola, soy Daniela. Propongo ideas creativas para la grabación de videos y apoyo en el diseño de contenido visual que comparte información mediante redes sociales.
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/Andres.jpeg" alt="Andres">
+                        <div class="ml-3">
+                            <h4>Andres</h4>
+                            <i>Coordinador del grupo</i>
+                        </div>
+                    </div>
+                    <p class="m-0">
+                        Hola, soy Andres. Soy responsable de dirigir y administrar el grupo, además de redactar textos para la investigación. Me gusta la astrofísica y la etnohistoria.
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/Diego.jpeg" alt="Diego">
+                        <div class="ml-3">
+                            <h4>Diego</h4>
+                            <i>Redacción y edición</i>
+                        </div>
+                    </div>
+                    <p class="m-0">
+                        Hola, soy Diego, uno de los encargados de la redacción de la investigación y edición de contenido. Me gusta jugar videojuegos y vóley.
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/Emily.jpeg" alt="Emily">
+                        <div class="ml-3">
+                            <h4>Emily</h4>
+                            <i>Decoración y contenido</i>
+                        </div>
+                    </div>
+                    <p class="m-0">
+                        Hola, soy Emily, encargada de revisar el contenido y la decoración de los trabajos. El deporte que practico es el vóley.
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/Adrian.png" alt="Adrian">
+                        <div class="ml-3">
+                            <h4>Adrian</h4>
+                            <i>Diseño y desarrollo web</i>
+                        </div>
+                    </div>
+                    <p class="m-0">
+                        Hola, soy Adrian, encargado del diseño y desarrollo de la página web del proyecto. También apoyo en la edición multimedia y en la organización del contenido digital.
+                    </p>
+                </div>
+                 <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/Maria.png" alt="Diego">
+                        <div class="ml-3">
+                            <h4>María </h4>
+                            <i>Coordinadora General</i>
+                        </div>
+                    </div>
+                    <p class="m-0">
+                        Hola, soy María, parte del equipo de CERIC. Me encargo de aportar ideas para nuevos contenidos y próximamente participaré en la gestión de ventas. En mi tiempo libre, me gusta la danza.
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/Pierina.png" alt="Emily">
+                        <div class="ml-3">
+                            <h4>Pierina</h4>
+                            <i>Diseñadora Editorial</i>
+                        </div>
+                    </div>
+                    <p class="m-0">
+                       Hola, soy Pierina, parte del equipo de CERIC. Contribuyo a que nuestros trabajos tengan una buena presentación, revisando los contenidos y cuidando cada detalle de su diseño. Una de mis actividades favoritas es practicar vóley.
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/Poma.png" alt="Poma">
+                        <div class="ml-3">
+                            <h4>Poma</h4>
+                            <i>Editor Audiovisual</i>
+                        </div>
+                    </div>
+                    <p class="m-0">
+                       Hola, soy Poma, encargado de la edición de videos y la creación de contenido multimedia. Me gusta experimentar con diferentes ideas y recursos para darle un toque más dinámico y atractivo a cada proyecto.
+                    </p>
+                </div>
+
             </div>
         </div>
+    </div>
+    <!-- Testimonial End -->
 
-        <div class="col-lg-3 col-md-6 mb-5 text-center">
-            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Siguenos en nuestras redes sociales</h4>
-          
-            <div class="d-flex justify-content-center">
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/p/Grupos-Ceric-61589148273439/"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.tiktok.com/@ceric_pre4?_r=1&_t=ZS-967ceTcxf2D"><i class="fab fa-tiktok"></i></a>
-                <a class="btn btn-lg btn-outline-light btn-lg-square" href="https://www.instagram.com/ceric_pre4/"><i class="fab fa-instagram"></i></a>
+    <!-- Footer Start -->
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4 justify-content-center" data-aos="fade-up">
+           
+            <div class="col-lg-3 col-md-6 mb-5 text-center">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Ubicación</h4>
+
+                <!-- Mapa Google Maps -->
+                <div class="mt-4" style="border-radius: 8px; overflow: hidden;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4!2d-76.9928267!3d-12.1704528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b84a67e5c7b1%3A0x98d5653c78e1c5ef!2sCerro%20VIVA%20PERU!5e0!3m2!1ses!2spe!4v1715000000000!5m2!1ses!2spe"
+                        width="100%"
+                        height="300"
+                        style="border: 0; display: block;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación Cerro VIVA PERU">
+                    </iframe>
+                </div>
             </div>
+
+            <div class="col-lg-3 col-md-6 mb-5 text-center">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos en nuestras redes sociales</h4>
+              
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/p/Grupos-Ceric-61589148273439/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.tiktok.com/@ceric_pre4?_r=1&_t=ZS-967ceTcxf2D" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="https://www.instagram.com/ceric_pre4/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
         </div>
         
+        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="m-0 text-white">
+                Template by 
+                <a class="font-weight-bold text-white" href="https://htmlcodex.com/" target="_blank">
+                    HTML Codex
+                </a>
+                | Adaptado por 
+                <a class="font-weight-bold text-white" href="#">
+                    AdrialSas
+                </a>
+            </p>
+        </div>
     </div>
-   <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" 
-style="border-color: rgba(256, 256, 256, .1) !important;">
-
-    <p class="m-0 text-white">
-        Template by 
-        <a class="font-weight-bold text-white" href="https://htmlcodex.com/">
-            HTML Codex
-        </a>
-        | Adaptado por 
-        <a class="font-weight-bold text-white" href="#">
-            AdrialSas
-        </a>
-    </p>
-
-</div>
-</div>
-<!-- Footer End -->
-
-
+    <!-- Footer End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -221,6 +282,15 @@ style="border-color: rgba(256, 256, 256, .1) !important;">
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- AOS Script e Inicialización -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 </body>
 
 </html>
