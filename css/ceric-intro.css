@@ -1,0 +1,261 @@
+/* ==========================================================================
+   CERIC — Introducción cinematográfica
+   Componente independiente. No modifica ni sobreescribe estilos existentes.
+   ========================================================================== */
+
+:root {
+    --intro-bg: #060504;
+    --intro-bg-deep: #000000;
+    --intro-accent: #c9a24b;
+    --intro-accent-soft: rgba(201, 162, 75, 0.35);
+    --intro-text: #f3ede0;
+    --intro-text-dim: rgba(243, 237, 224, 0.62);
+    --intro-duration-in: 5000ms;
+}
+
+/* Bloquea el scroll de la página mientras la intro está activa.
+   Esta clase se coloca en <html> desde el propio HTML para evitar
+   cualquier parpadeo de contenido antes de que cargue el JS. */
+html.ceric-intro-lock,
+html.ceric-intro-lock body {
+    overflow: hidden !important;
+    height: 100%;
+}
+
+#ceric-intro {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    background: radial-gradient(ellipse at 50% 40%, #120f0a 0%, var(--intro-bg) 55%, var(--intro-bg-deep) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 900ms ease, filter 900ms ease;
+}
+
+/* Estado de salida: la intro se disuelve con una ligera "cortina de luz" */
+#ceric-intro.ceric-intro-exit {
+    opacity: 0;
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+#ceric-intro.ceric-intro-exit-fast {
+    transition: opacity 380ms ease, filter 380ms ease;
+}
+
+/* Se aplica justo antes del fade final: un breve destello cálido
+   que simula una cortina de luz abriéndose */
+#ceric-intro .intro-light-wipe {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 48%, rgba(255, 244, 214, 0.0) 0%, rgba(255, 244, 214, 0.0) 100%);
+    opacity: 0;
+    transition: opacity 700ms ease, background 900ms ease;
+    pointer-events: none;
+}
+
+#ceric-intro.ceric-intro-exit .intro-light-wipe {
+    opacity: 1;
+    background: radial-gradient(circle at 50% 48%, rgba(255, 244, 214, 0.22) 0%, rgba(255, 244, 214, 0) 62%);
+}
+
+/* --- Textura y profundidad ------------------------------------------- */
+
+#ceric-intro canvas.intro-particles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    mix-blend-mode: screen;
+}
+
+#ceric-intro .intro-grain {
+    position: absolute;
+    inset: -10%;
+    width: 120%;
+    height: 120%;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    animation: intro-grain-shift 8s steps(8) infinite;
+}
+
+@keyframes intro-grain-shift {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-2%, 1%); }
+    100% { transform: translate(1%, -2%); }
+}
+
+#ceric-intro .intro-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 18vw 4vw rgba(0, 0, 0, 0.85);
+}
+
+/* --- Contenido central -------------------------------------------------- */
+
+#ceric-intro .intro-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 6vw;
+}
+
+#ceric-intro .intro-word {
+    margin: 0;
+    color: var(--intro-text);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.35em;
+    opacity: 0;
+    will-change: opacity, transform, filter;
+}
+
+#ceric-intro .intro-word-somos {
+    font-size: clamp(0.95rem, 2.4vw, 1.5rem);
+    font-weight: 200;
+    color: var(--intro-text-dim);
+    letter-spacing: 0.55em;
+    transform: translateY(16px);
+    filter: blur(6px);
+    transition: opacity 1100ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1100ms cubic-bezier(0.22, 1, 0.36, 1),
+                filter 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#ceric-intro.ceric-scene-somos .intro-word-somos {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Cuando entra CERIC, SOMOS se retira suavemente hacia arriba, como
+   un cintillo de documental que cede el protagonismo al título */
+#ceric-intro.ceric-scene-ceric .intro-word-somos {
+    opacity: 0.55;
+    transform: translateY(-6px) scale(0.94);
+    transition: opacity 900ms ease, transform 900ms ease;
+}
+
+#ceric-intro .intro-word-ceric {
+    font-size: clamp(3.2rem, 15vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    margin-top: 0.35em;
+    line-height: 1;
+    transform: translateY(10px) scale(1.06);
+    filter: blur(14px);
+    text-shadow: 0 0 40px var(--intro-accent-soft);
+    transition: opacity 1400ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1400ms cubic-bezier(0.16, 1, 0.3, 1),
+                filter 1400ms cubic-bezier(0.16, 1, 0.3, 1),
+                text-shadow 1800ms ease;
+}
+
+#ceric-intro.ceric-scene-ceric .intro-word-ceric {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    text-shadow: 0 0 4px var(--intro-accent-soft), 0 0 70px var(--intro-accent-soft);
+}
+
+#ceric-intro .intro-subtitle {
+    margin-top: 1.6em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.75rem, 1.6vw, 1rem);
+    letter-spacing: 0.28em;
+    color: var(--intro-text-dim);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1100ms ease, transform 1100ms ease;
+}
+
+#ceric-intro.ceric-scene-subtitle .intro-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Botón saltar intro --------------------------------------------- */
+
+#ceric-intro .intro-skip {
+    position: absolute;
+    z-index: 3;
+    bottom: 28px;
+    right: 32px;
+    background: transparent;
+    border: 1px solid rgba(243, 237, 224, 0.25);
+    color: var(--intro-text-dim);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    padding: 0.55em 1.1em;
+    border-radius: 999px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 900ms ease 600ms, border-color 250ms ease, color 250ms ease, background 250ms ease;
+}
+
+#ceric-intro.ceric-scene-somos .intro-skip {
+    opacity: 0.75;
+}
+
+#ceric-intro .intro-skip:hover,
+#ceric-intro .intro-skip:focus-visible {
+    opacity: 1;
+    color: var(--intro-text);
+    border-color: var(--intro-accent-soft);
+    background: rgba(201, 162, 75, 0.08);
+    outline: none;
+}
+
+/* --- Responsive ------------------------------------------------------ */
+
+@media (max-width: 576px) {
+    #ceric-intro .intro-skip {
+        bottom: 18px;
+        right: 18px;
+        font-size: 0.72rem;
+        padding: 0.5em 0.9em;
+    }
+
+    #ceric-intro .intro-subtitle {
+        letter-spacing: 0.16em;
+        line-height: 1.5;
+    }
+}
+
+/* --- Accesibilidad: prefers-reduced-motion ---------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    #ceric-intro,
+    #ceric-intro .intro-word,
+    #ceric-intro .intro-word-somos,
+    #ceric-intro .intro-word-ceric,
+    #ceric-intro .intro-subtitle,
+    #ceric-intro .intro-skip,
+    #ceric-intro .intro-light-wipe {
+        transition-duration: 220ms !important;
+        animation: none !important;
+    }
+
+    #ceric-intro .intro-word-somos,
+    #ceric-intro .intro-word-ceric {
+        filter: none !important;
+        transform: none !important;
+    }
+
+    #ceric-intro canvas.intro-particles,
+    #ceric-intro .intro-grain {
+        display: none !important;
+    }
+}

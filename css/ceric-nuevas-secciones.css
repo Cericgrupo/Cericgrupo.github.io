@@ -1,0 +1,987 @@
+/* =====================================================================
+   CERIC - NUEVAS SECCIONES INTERACTIVAS
+   Hoja de estilos adicional para la ampliación del sitio.
+   NO modifica style.min.css: solo agrega estilos nuevos encima.
+   Paleta reutilizada de scss/style.scss:
+     --cvp-primary   #DA9F5B  (dorado)
+     --cvp-secondary #33211D  (marrón oscuro)
+     --cvp-light     #FFFBF2  (crema)
+     --cvp-dark      #111111
+     --cvp-body      #555555
+   Tipografías reutilizadas: Montserrat (texto), Roboto (títulos)
+   ===================================================================== */
+
+:root {
+    --cvp-primary: #DA9F5B;
+    --cvp-primary-soft: rgba(218, 159, 91, 0.18);
+    --cvp-secondary: #33211D;
+    --cvp-light: #FFFBF2;
+    --cvp-dark: #111111;
+    --cvp-body: #555555;
+}
+
+.cvp-section {
+    position: relative;
+    padding: 90px 0;
+    overflow: hidden;
+}
+
+.cvp-section-alt {
+    background: #FFF6E6;
+}
+
+.cvp-eyebrow {
+    display: inline-block;
+    color: var(--cvp-primary);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.cvp-section-heading {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 55px auto;
+}
+
+.cvp-section-heading h2 {
+    font-size: 2.4rem;
+    color: var(--cvp-secondary);
+}
+
+.cvp-section-heading p {
+    color: var(--cvp-body);
+    line-height: 1.7;
+}
+
+/* =====================================================================
+   1. LÍNEA DE TIEMPO INTERACTIVA
+   ===================================================================== */
+.cvp-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 0;
+}
+
+.cvp-timeline-track {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    margin-left: -1.5px;
+    background: rgba(51, 33, 29, 0.12);
+    border-radius: 3px;
+}
+
+.cvp-timeline-track-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, var(--cvp-primary), var(--cvp-secondary));
+    border-radius: 3px;
+    transition: height 0.15s ease-out;
+}
+
+.cvp-timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 0 45px 60px 45px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.cvp-timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cvp-timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.cvp-timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.cvp-timeline-dot {
+    position: absolute;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--cvp-light);
+    border: 4px solid var(--cvp-primary);
+    z-index: 2;
+    transition: background 0.4s ease, transform 0.4s ease;
+}
+
+.cvp-timeline-item.is-visible .cvp-timeline-dot {
+    background: var(--cvp-primary);
+    transform: scale(1.15);
+}
+
+.cvp-timeline-item:nth-child(odd) .cvp-timeline-dot {
+    right: -10px;
+}
+
+.cvp-timeline-item:nth-child(even) .cvp-timeline-dot {
+    left: -10px;
+}
+
+.cvp-timeline-card {
+    display: inline-block;
+    background: #fff;
+    border-radius: 6px;
+    padding: 25px 28px;
+    box-shadow: 0 10px 30px rgba(51, 33, 29, 0.08);
+    border-top: 3px solid var(--cvp-primary);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    max-width: 100%;
+}
+
+.cvp-timeline-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(51, 33, 29, 0.15);
+}
+
+.cvp-timeline-year {
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--cvp-primary);
+    margin-bottom: 6px;
+}
+
+.cvp-timeline-card h4 {
+    color: var(--cvp-secondary);
+    margin-bottom: 8px;
+}
+
+.cvp-timeline-card p {
+    color: var(--cvp-body);
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 767.98px) {
+    .cvp-timeline-track {
+        left: 22px;
+    }
+
+    .cvp-timeline-item,
+    .cvp-timeline-item:nth-child(odd),
+    .cvp-timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding: 0 15px 45px 55px;
+    }
+
+    .cvp-timeline-item:nth-child(odd) .cvp-timeline-dot,
+    .cvp-timeline-item:nth-child(even) .cvp-timeline-dot {
+        left: 12px;
+        right: auto;
+    }
+}
+
+/* =====================================================================
+   2. RESULTADOS DE LA ENCUESTA (donas animadas)
+   ===================================================================== */
+.cvp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cvp-stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px 18px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(51, 33, 29, 0.07);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cvp-stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 34px rgba(51, 33, 29, 0.14);
+}
+
+.cvp-stat-ring {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 18px auto;
+}
+
+.cvp-stat-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.cvp-stat-ring circle {
+    fill: none;
+    stroke-width: 10;
+}
+
+.cvp-stat-ring .cvp-ring-bg {
+    stroke: rgba(51, 33, 29, 0.1);
+}
+
+.cvp-stat-ring .cvp-ring-fill {
+    stroke: var(--cvp-primary);
+    stroke-linecap: round;
+    stroke-dasharray: 345;
+    stroke-dashoffset: 345;
+    transition: stroke-dashoffset 1.4s cubic-bezier(.25, .8, .25, 1);
+}
+
+.cvp-stat-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--cvp-secondary);
+}
+
+.cvp-stat-card p {
+    color: var(--cvp-body);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cvp-stat-card.cvp-stat-positive .cvp-ring-fill {
+    stroke: #4c8c4a;
+}
+
+.cvp-impact-quote {
+    max-width: 760px;
+    margin: 55px auto 0 auto;
+    text-align: center;
+    padding: 35px 30px;
+    border-left: 4px solid var(--cvp-primary);
+    border-right: 4px solid var(--cvp-primary);
+    background: #fff;
+    border-radius: 6px;
+}
+
+.cvp-impact-quote p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    color: var(--cvp-secondary);
+    font-style: italic;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* =====================================================================
+   3. QUIZ INTERACTIVO
+   ===================================================================== */
+.cvp-quiz-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 15px 45px rgba(51, 33, 29, 0.12);
+    padding: 40px;
+}
+
+.cvp-quiz-progress {
+    height: 8px;
+    width: 100%;
+    background: rgba(51, 33, 29, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.cvp-quiz-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--cvp-primary);
+    transition: width 0.45s ease;
+}
+
+.cvp-quiz-counter {
+    color: var(--cvp-primary);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.cvp-quiz-question {
+    color: var(--cvp-secondary);
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+}
+
+.cvp-quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cvp-quiz-option {
+    text-align: left;
+    background: var(--cvp-light);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--cvp-secondary);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.cvp-quiz-option:hover {
+    border-color: var(--cvp-primary);
+    transform: translateX(4px);
+}
+
+.cvp-quiz-option.is-correct {
+    background: rgba(76, 140, 74, 0.15);
+    border-color: #4c8c4a;
+}
+
+.cvp-quiz-option.is-incorrect {
+    background: rgba(178, 58, 46, 0.12);
+    border-color: #b23a2e;
+}
+
+.cvp-quiz-option:disabled {
+    cursor: default;
+}
+
+.cvp-quiz-feedback {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    color: var(--cvp-body);
+    min-height: 24px;
+}
+
+.cvp-quiz-nav {
+    margin-top: 25px;
+    text-align: right;
+}
+
+.cvp-quiz-result {
+    text-align: center;
+}
+
+.cvp-quiz-result-score {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--cvp-primary);
+    margin-bottom: 10px;
+}
+
+.cvp-quiz-result-message {
+    color: var(--cvp-secondary);
+    font-size: 1.1rem;
+    max-width: 520px;
+    margin: 0 auto 25px auto;
+    line-height: 1.6;
+}
+
+.cvp-quiz-hidden {
+    display: none !important;
+}
+
+/* =====================================================================
+   4. ANTES Y AHORA (comparador deslizante)
+   ===================================================================== */
+.cvp-compare {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(51, 33, 29, 0.18);
+    user-select: none;
+}
+
+.cvp-compare-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cvp-compare-before-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+
+.cvp-compare-label {
+    position: absolute;
+    top: 18px;
+    padding: 6px 16px;
+    background: rgba(17, 17, 17, 0.55);
+    color: #fff;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    z-index: 3;
+}
+
+.cvp-compare-label.cvp-label-before {
+    left: 18px;
+}
+
+.cvp-compare-label.cvp-label-after {
+    right: 18px;
+}
+
+.cvp-compare-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: #fff;
+    transform: translateX(-2px);
+    z-index: 4;
+    cursor: ew-resize;
+}
+
+.cvp-compare-handle::after {
+    content: "\f337";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px;
+    height: 46px;
+    background: var(--cvp-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cvp-compare-range {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    z-index: 5;
+}
+
+.cvp-compare-placeholder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(135deg, #e8ddc9, #e8ddc9 12px, #f2e9d8 12px, #f2e9d8 24px);
+    color: var(--cvp-secondary);
+}
+
+/* El contenido de cada placeholder se ancla a un costado (no al centro)
+   para que, al deslizar el comparador, los textos de "antes" y "ahora"
+   nunca se mezclen entre sí en el punto de corte. */
+.cvp-compare-placeholder-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.cvp-compare-placeholder-content.cvp-anchor-left {
+    left: 6%;
+}
+
+.cvp-compare-placeholder-content.cvp-anchor-right {
+    right: 6%;
+}
+
+.cvp-compare-placeholder i {
+    font-size: 2.2rem;
+    color: var(--cvp-primary);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.cvp-compare-placeholder p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cvp-compare-caption {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    color: var(--cvp-body);
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* =====================================================================
+   5. MAPA HISTÓRICO INTERACTIVO
+   ===================================================================== */
+.cvp-map-wrapper {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background: repeating-linear-gradient(135deg, #e8ddc9, #e8ddc9 12px, #f2e9d8 12px, #f2e9d8 24px);
+    box-shadow: 0 20px 45px rgba(51, 33, 29, 0.15);
+    aspect-ratio: 16 / 10;
+}
+
+.cvp-map-wrapper img.cvp-map-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cvp-map-placeholder-msg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    color: var(--cvp-secondary);
+    padding: 8% 15% 0 15%;
+    pointer-events: none;
+}
+
+.cvp-map-placeholder-msg i {
+    font-size: 2.4rem;
+    color: var(--cvp-primary);
+    margin-bottom: 12px;
+}
+
+.cvp-map-point {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    margin: -17px 0 0 -17px;
+    border-radius: 50%;
+    background: var(--cvp-primary);
+    border: 3px solid #fff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    animation: cvp-pulse 2.2s infinite;
+    z-index: 2;
+}
+
+.cvp-map-point:hover {
+    background: var(--cvp-secondary);
+}
+
+@keyframes cvp-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(218, 159, 91, 0.55);
+    }
+
+    70% {
+        box-shadow: 0 0 0 14px rgba(218, 159, 91, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(218, 159, 91, 0);
+    }
+}
+
+.cvp-map-info {
+    max-width: 950px;
+    margin: 25px auto 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 22px 26px;
+    box-shadow: 0 8px 24px rgba(51, 33, 29, 0.1);
+    border-left: 4px solid var(--cvp-primary);
+    display: none;
+}
+
+.cvp-map-info.is-active {
+    display: block;
+}
+
+.cvp-map-info h4 {
+    color: var(--cvp-secondary);
+    margin-bottom: 8px;
+}
+
+.cvp-map-info p {
+    color: var(--cvp-body);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.cvp-map-legend {
+    max-width: 950px;
+    margin: 18px auto 0 auto;
+    font-size: 0.85rem;
+    color: var(--cvp-body);
+    text-align: center;
+}
+
+/* =====================================================================
+   6. VIDEOS DEL PROYECTO
+   ===================================================================== */
+.cvp-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cvp-video-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(51, 33, 29, 0.09);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cvp-video-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 36px rgba(51, 33, 29, 0.16);
+}
+
+.cvp-video-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--cvp-secondary), #4a3128);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cvp-video-thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+}
+
+.cvp-video-play {
+    position: relative;
+    z-index: 2;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--cvp-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.cvp-video-thumb:hover .cvp-video-play {
+    transform: scale(1.12);
+}
+
+.cvp-video-body {
+    padding: 20px 22px;
+}
+
+.cvp-video-body h4 {
+    color: var(--cvp-secondary);
+    margin-bottom: 8px;
+}
+
+.cvp-video-body p {
+    color: var(--cvp-body);
+    font-size: 0.92rem;
+    margin: 0;
+    line-height: 1.55;
+}
+
+/* =====================================================================
+   7. PROCESO DE INVESTIGACIÓN
+   ===================================================================== */
+.cvp-process {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.cvp-process-step {
+    flex: 1 1 180px;
+    max-width: 210px;
+    text-align: center;
+    padding: 0 12px;
+    position: relative;
+}
+
+.cvp-process-icon {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 18px auto;
+    border-radius: 50%;
+    background: var(--cvp-primary-soft);
+    border: 2px solid var(--cvp-primary);
+    color: var(--cvp-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cvp-process-step:hover .cvp-process-icon {
+    background: var(--cvp-primary);
+    color: #fff;
+    transform: translateY(-6px);
+}
+
+.cvp-process-step h5 {
+    color: var(--cvp-secondary);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.cvp-process-step p {
+    color: var(--cvp-body);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.cvp-process-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cvp-primary);
+    font-size: 1.4rem;
+    padding-top: 28px;
+    flex: 0 0 40px;
+}
+
+@media (max-width: 767.98px) {
+    .cvp-process-arrow {
+        transform: rotate(90deg);
+        padding: 10px 0;
+        flex-basis: 100%;
+    }
+}
+
+/* =====================================================================
+   8. SECCIÓN CONMEMORATIVA
+   ===================================================================== */
+.cvp-memorial {
+    position: relative;
+    padding: 130px 0;
+    text-align: center;
+    background: linear-gradient(rgba(17, 17, 17, 0.82), rgba(51, 33, 29, 0.88)), url(../img/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.cvp-memorial-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.cvp-memorial-particle {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: rgba(218, 159, 91, 0.55);
+    border-radius: 50%;
+    animation: cvp-float-up linear infinite;
+}
+
+@keyframes cvp-float-up {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(-620px);
+        opacity: 0;
+    }
+}
+
+.cvp-memorial-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.cvp-memorial-content h2 {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.3rem;
+    line-height: 1.5;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.cvp-memorial-content .cvp-memorial-line {
+    width: 70px;
+    height: 3px;
+    background: var(--cvp-primary);
+    margin: 0 auto 30px auto;
+}
+
+.cvp-memorial-content p {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+}
+
+/* =====================================================================
+   9. LA HISTORIA CONTINÚA CONTIGO
+   ===================================================================== */
+.cvp-action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 26px;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.cvp-action-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 34px 24px;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(51, 33, 29, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cvp-action-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(51, 33, 29, 0.15);
+}
+
+.cvp-action-icon {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: var(--cvp-secondary);
+    color: var(--cvp-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 18px auto;
+}
+
+.cvp-action-card h5 {
+    color: var(--cvp-secondary);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cvp-action-card p {
+    color: var(--cvp-body);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+}
+
+.cvp-action-card .btn {
+    border-radius: 30px;
+}
+
+.cvp-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--cvp-secondary);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1100;
+}
+
+.cvp-toast.is-active {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =====================================================================
+   Utilidades generales
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+
+    .cvp-timeline-item,
+    .cvp-timeline-dot,
+    .cvp-ring-fill,
+    .cvp-memorial-particle,
+    .cvp-map-point {
+        animation: none !important;
+        transition: none !important;
+    }
+}
